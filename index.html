@@ -10,7 +10,7 @@
 <meta property="og:image" content="https://toku031903-sys.github.io/Rummikub/IMG_1373.jpeg">
 <meta property="og:url" content="https://toku031903-sys.github.io/Rummikub/">
 
-< meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ラミィキューブ">
 <meta name="twitter:description" content="2〜4人で遊べるボードゲーム">
 <meta name="twitter:image" content="https://toku031903-sys.github.io/Rummikub/IMG_1373.jpeg">
@@ -28,52 +28,35 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;overflow:hidden;}
-body{
-  background:var(--bg);color:var(--text);
-  font-family:'Rajdhani',sans-serif;
-  display:flex;flex-direction:column;
-}
-body::before{
-  content:'';position:fixed;inset:0;pointer-events:none;
+body{background:var(--bg);color:var(--text);font-family:'Rajdhani',sans-serif;display:flex;flex-direction:column;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;
   background:radial-gradient(ellipse at 15% 15%,rgba(0,229,255,.05) 0%,transparent 55%),
-             radial-gradient(ellipse at 85% 85%,rgba(255,61,113,.05) 0%,transparent 55%);
-}
-
-/* SCREENS */
+             radial-gradient(ellipse at 85% 85%,rgba(255,61,113,.05) 0%,transparent 55%);}
 .screen{display:none;flex-direction:column;align-items:center;justify-content:center;
   height:100dvh;overflow-y:auto;padding:20px;position:relative;z-index:1;}
 .screen.active{display:flex;}
 #game-screen{display:none;flex-direction:column;height:100dvh;overflow:hidden;
   padding:0;align-items:stretch;justify-content:flex-start;}
 #game-screen.active{display:flex;}
-
-/* LOGO */
 .logo{font-family:'Orbitron',monospace;font-size:clamp(1.8rem,7vw,3.5rem);font-weight:900;
   letter-spacing:.1em;background:linear-gradient(135deg,var(--accent),var(--accent2));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;}
 .logo-sub{font-size:.8rem;color:var(--text-dim);letter-spacing:.3em;text-transform:uppercase;margin-bottom:36px;}
-
-/* CARD */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;
   padding:24px;width:100%;max-width:420px;box-shadow:0 8px 40px rgba(0,0,0,.4);}
 .card-title{font-family:'Orbitron',monospace;font-size:.7rem;letter-spacing:.2em;
   color:var(--accent);text-transform:uppercase;margin-bottom:18px;}
-
-/* INPUTS */
 .input-group{margin-bottom:14px;}
 .input-group label{display:block;font-size:.78rem;color:var(--text-dim);margin-bottom:5px;letter-spacing:.1em;}
 input[type=text]{width:100%;background:var(--surface2);border:1px solid var(--border);
   border-radius:8px;padding:11px 14px;color:var(--text);font-family:'Rajdhani',sans-serif;
   font-size:1rem;outline:none;transition:border-color .2s;}
 input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,229,255,.1);}
-
-/* BUTTONS */
 .btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:13px;
   border:none;border-radius:10px;cursor:pointer;font-family:'Orbitron',monospace;
   font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
   transition:all .15s;user-select:none;white-space:nowrap;}
-.btn-primary{background:linear-gradient(135deg,var(--accent),#0088cc);color:#000;
-  box-shadow:0 4px 18px rgba(0,229,255,.3);}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#0088cc);color:#000;box-shadow:0 4px 18px rgba(0,229,255,.3);}
 .btn-primary:active{transform:scale(.97);}
 .btn-secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border);}
 .btn-secondary:active{transform:scale(.97);}
@@ -81,16 +64,12 @@ input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,229,255,.1);}
 .btn-danger{background:linear-gradient(135deg,var(--accent2),#cc0044);color:#fff;}
 .btn+.btn{margin-top:9px;}
 .btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important;}
-
-/* TABS */
 .tabs{display:flex;gap:6px;margin-bottom:16px;}
 .tab{flex:1;padding:8px;border-radius:8px;border:1px solid var(--border);
   background:var(--surface2);color:var(--text-dim);cursor:pointer;
   font-family:'Rajdhani',sans-serif;font-size:.9rem;text-align:center;transition:all .2s;}
 .tab.active{background:rgba(0,229,255,.12);border-color:var(--accent);color:var(--accent);}
-.tab-body{display:none;} .tab-body.active{display:block;}
-
-/* WAITING */
+.tab-body{display:none;}.tab-body.active{display:block;}
 .room-code-box{text-align:center;background:var(--surface2);border:1px solid var(--accent);
   border-radius:10px;padding:18px;margin-bottom:18px;}
 .room-code-box .lbl{font-size:.72rem;color:var(--text-dim);letter-spacing:.2em;margin-bottom:6px;}
@@ -101,57 +80,34 @@ input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,229,255,.1);}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent4);}
 .you-badge{margin-left:auto;font-size:.68rem;color:var(--accent);}
 .status-msg{text-align:center;color:var(--text-dim);font-size:.82rem;margin:10px 0;}
-
-/* CFG */
-.cfg-notice{background:rgba(255,170,0,.1);border:1px solid rgba(255,170,0,.35);
-  border-radius:8px;padding:12px;font-size:.78rem;color:var(--accent3);margin-bottom:14px;line-height:1.7;}
-
-/* GAME HEADER */
 .game-header{background:var(--surface);border-bottom:1px solid var(--border);
-  padding:7px 11px;display:flex;align-items:center;justify-content:space-between;
-  flex-shrink:0;z-index:10;}
+  padding:7px 11px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;z-index:10;}
 .room-id-lbl{font-family:'Orbitron',monospace;font-size:.62rem;color:var(--text-dim);}
 .turn-ind{font-family:'Orbitron',monospace;font-size:.66rem;padding:4px 11px;
   border-radius:20px;background:var(--surface2);color:var(--text-dim);transition:all .3s;}
-.turn-ind.mine{background:rgba(0,229,255,.15);color:var(--accent);
-  border:1px solid var(--accent);box-shadow:var(--glow);}
-
-/* PLAYERS BAR */
+.turn-ind.mine{background:rgba(0,229,255,.15);color:var(--accent);border:1px solid var(--accent);box-shadow:var(--glow);}
 .players-bar{display:flex;gap:5px;padding:5px 9px;background:var(--surface);
   border-bottom:1px solid var(--border);overflow-x:auto;flex-shrink:0;}
 .p-chip{display:flex;align-items:center;gap:5px;padding:4px 9px;border-radius:20px;
-  background:var(--surface2);border:1px solid var(--border);white-space:nowrap;
-  font-size:.77rem;flex-shrink:0;transition:all .3s;}
+  background:var(--surface2);border:1px solid var(--border);white-space:nowrap;font-size:.77rem;flex-shrink:0;transition:all .3s;}
 .p-chip.cur{border-color:var(--accent);background:rgba(0,229,255,.1);color:var(--accent);}
-.p-chip .cnt{font-family:'Orbitron',monospace;font-size:.6rem;
-  background:var(--border);border-radius:10px;padding:1px 5px;}
-
-/* TABLE AREA */
+.p-chip .cnt{font-family:'Orbitron',monospace;font-size:.6rem;background:var(--border);border-radius:10px;padding:1px 5px;}
 .table-area{flex:1;overflow-y:auto;overflow-x:hidden;padding:8px;background:var(--bg);position:relative;}
 .table-scroll{display:flex;flex-wrap:wrap;gap:7px;align-content:flex-start;min-height:80px;}
-
-/* MELD GROUP */
 .meld-grp{display:flex;flex-wrap:wrap;gap:3px;background:var(--surface);
   border:1.5px solid var(--border);border-radius:8px;padding:5px;
   position:relative;transition:border-color .2s,box-shadow .2s;align-items:center;}
-.meld-grp.targeted{border-color:var(--accent);box-shadow:var(--glow);}
 .meld-grp.invalid{border-color:var(--accent2)!important;box-shadow:0 0 10px rgba(255,61,113,.25);}
 .meld-grp.valid{border-color:var(--accent4);}
-
-/* Validity badge */
 .v-badge{position:absolute;top:-7px;right:-7px;width:15px;height:15px;border-radius:50%;
   font-size:.55rem;display:flex;align-items:center;justify-content:center;font-weight:700;}
 .v-badge.ok{background:var(--accent4);color:#000;}
 .v-badge.ng{background:var(--accent2);color:#fff;}
-
-/* Add-group button */
 .add-grp-btn{display:flex;align-items:center;justify-content:center;
   width:38px;height:54px;border:1.5px dashed var(--border);border-radius:8px;
   color:var(--text-dim);cursor:pointer;font-size:1.4rem;transition:all .2s;
   background:transparent;flex-shrink:0;align-self:flex-start;}
-.add-grp-btn:hover,.add-grp-btn.targeted{border-color:var(--accent);color:var(--accent);}
-
-/* TILE */
+.add-grp-btn:hover{border-color:var(--accent);color:var(--accent);}
 .tile{width:38px;height:50px;border-radius:6px;background:var(--tile-bg);
   border:1.5px solid var(--tile-border);display:flex;flex-direction:column;
   align-items:center;justify-content:center;font-family:'Orbitron',monospace;
@@ -164,39 +120,25 @@ input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,229,255,.1);}
 .tile.color-blue{color:var(--blue);}
 .tile.color-orange{color:var(--orange);}
 .tile.color-black{color:var(--black);}
-.tile.color-joker{background:linear-gradient(135deg,#180d35,#2a1060);
-  border-color:var(--joker);color:var(--joker);font-size:.62rem;letter-spacing:.03em;}
+.tile.color-joker{background:linear-gradient(135deg,#180d35,#2a1060);border-color:var(--joker);color:var(--joker);font-size:.62rem;letter-spacing:.03em;}
 .cdot{width:5px;height:5px;border-radius:50%;position:absolute;bottom:3px;right:3px;opacity:.55;}
 .tile.color-red .cdot{background:var(--red);}
 .tile.color-blue .cdot{background:var(--blue);}
 .tile.color-orange .cdot{background:var(--orange);}
 .tile.color-black .cdot{background:var(--black);}
-
-/* Tile index inside meld (for removal) */
 .tile-remove{position:absolute;top:-6px;left:-4px;width:13px;height:13px;
   border-radius:50%;background:var(--accent2);color:#fff;font-size:.5rem;
   display:none;align-items:center;justify-content:center;cursor:pointer;z-index:5;font-family:sans-serif;}
 .editing-mode .tile-remove{display:flex;}
-
-/* EMPTY HINT */
 .empty-hint{position:absolute;inset:0;display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:7px;pointer-events:none;color:var(--text-dim);}
 .empty-hint .ico{font-size:2rem;opacity:.25;}
 .empty-hint .txt{font-size:.78rem;letter-spacing:.12em;opacity:.4;}
-
-/* MODE BANNER */
-.mode-banner{
-  text-align:center;padding:5px 10px;font-size:.72rem;letter-spacing:.1em;
-  flex-shrink:0;font-family:'Orbitron',monospace;
-  transition:all .3s;
-}
+.mode-banner{text-align:center;padding:5px 10px;font-size:.72rem;letter-spacing:.1em;
+  flex-shrink:0;font-family:'Orbitron',monospace;transition:all .3s;}
 .mode-banner.mode-normal{background:rgba(0,0,0,0);color:var(--text-dim);}
-.mode-banner.mode-edit{background:rgba(255,170,0,.12);color:var(--accent3);
-  border-bottom:1px solid rgba(255,170,0,.3);}
-.mode-banner.mode-new{background:rgba(0,229,255,.1);color:var(--accent);
-  border-bottom:1px solid rgba(0,229,255,.25);}
-
-/* HAND */
+.mode-banner.mode-edit{background:rgba(255,170,0,.12);color:var(--accent3);border-bottom:1px solid rgba(255,170,0,.3);}
+.mode-banner.mode-new{background:rgba(0,229,255,.1);color:var(--accent);border-bottom:1px solid rgba(0,229,255,.25);}
 .hand-area{background:var(--surface);border-top:1px solid var(--border);padding:7px 9px;flex-shrink:0;}
 .hand-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
 .hand-lbl{font-family:'Orbitron',monospace;font-size:.62rem;color:var(--text-dim);letter-spacing:.15em;}
@@ -205,15 +147,11 @@ input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,229,255,.1);}
 .sort-btn{background:var(--surface2);border:1px solid var(--border);border-radius:5px;
   padding:2px 7px;cursor:pointer;color:var(--text-dim);font-size:.68rem;
   font-family:'Rajdhani',sans-serif;transition:all .2s;}
+.sort-btn.active-sort{border-color:var(--accent);color:var(--accent);}
 .sort-btn:hover{border-color:var(--accent);color:var(--accent);}
 .hand-tiles{display:flex;flex-wrap:wrap;gap:4px;max-height:115px;overflow-y:auto;padding-bottom:3px;}
-
-/* ACTION BAR */
-.action-bar{background:var(--surface);border-top:1px solid var(--border);
-  padding:7px 9px;display:flex;gap:5px;flex-shrink:0;}
+.action-bar{background:var(--surface);border-top:1px solid var(--border);padding:7px 9px;display:flex;gap:5px;flex-shrink:0;}
 .action-bar .btn{font-size:.62rem;padding:9px 6px;letter-spacing:.04em;}
-
-/* TOAST */
 .toast{position:fixed;top:68px;left:50%;transform:translateX(-50%);
   background:var(--surface2);border:1px solid var(--border);border-radius:8px;
   padding:9px 18px;font-size:.83rem;color:var(--text);
@@ -222,17 +160,12 @@ input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,229,255,.1);}
 .toast.show{opacity:1;}
 .toast.err{border-color:var(--accent2);color:var(--accent2);}
 .toast.ok{border-color:var(--accent4);color:var(--accent4);}
-
-/* WINNER */
 .winner-ov{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);
   align-items:center;justify-content:center;flex-direction:column;gap:18px;}
 .winner-ov.show{display:flex;}
 .winner-ov h2{font-family:'Orbitron',monospace;font-size:clamp(1.5rem,6vw,2.2rem);color:var(--accent3);}
-
-/* SCROLLBAR */
 ::-webkit-scrollbar{width:3px;height:3px;}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
-
 @media(max-width:380px){
   .tile{width:33px;height:44px;font-size:.8rem;}
   .tile.color-joker{font-size:.55rem;}
@@ -241,19 +174,16 @@ input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,229,255,.1);}
 </head>
 <body>
 
-<!-- CONFIG -->
+<!-- CONFIG (fallback only) -->
 <div class="screen active" id="cfg-screen">
   <div class="logo">RUMMIKUB</div>
   <div class="logo-sub">ONLINE · MULTIPLAYER</div>
   <div class="card">
-    <div class="cfg-notice">⚙️ Firebase Realtime Database の接続情報を入力してください。<br>一度入力すると次回から自動でスキップされます。</div>
-    <div class="card-title">Firebase Config</div>
-    <div class="input-group"><label>API KEY</label><input type="text" id="cfg-api" placeholder="AIza..."></div>
-    <div class="input-group"><label>Auth Domain</label><input type="text" id="cfg-auth" placeholder="xxx.firebaseapp.com"></div>
-    <div class="input-group"><label>Database URL</label><input type="text" id="cfg-db" placeholder="https://xxx-default-rtdb.firebaseio.com"></div>
-    <div class="input-group"><label>Project ID</label><input type="text" id="cfg-proj" placeholder="your-project-id"></div>
-    <button class="btn btn-primary" onclick="saveConfig()">接続して始める →</button>
-    <button class="btn btn-secondary" style="margin-top:8px" onclick="clearConfig()">設定をリセット</button>
+    <div class="card-title">接続エラー</div>
+    <p style="color:var(--text-dim);font-size:.85rem;line-height:1.7;margin-bottom:16px">
+      Firebaseへの接続に失敗しました。ページを再読み込みしてください。
+    </p>
+    <button class="btn btn-primary" onclick="location.reload()">再読み込み</button>
   </div>
 </div>
 
@@ -281,7 +211,6 @@ input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,229,255,.1);}
       </div>
       <button class="btn btn-primary" onclick="joinRoom()">ルームに参加</button>
     </div>
-    <button class="btn btn-secondary" style="margin-top:14px;font-size:.65rem" onclick="showScreen('cfg-screen')">⚙ Firebase設定を変更</button>
   </div>
 </div>
 
@@ -306,8 +235,7 @@ input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,229,255,.1);}
   <div class="game-header">
     <div class="room-id-lbl" id="hdr-room">ROOM: ----</div>
     <div class="turn-ind" id="turn-ind">WAITING</div>
-    <button class="btn btn-secondary" onclick="leaveRoom()"
-      style="padding:4px 8px;font-size:.58rem;width:auto">QUIT</button>
+    <button class="btn btn-secondary" onclick="leaveRoom()" style="padding:4px 8px;font-size:.58rem;width:auto">QUIT</button>
   </div>
   <div class="players-bar" id="players-bar"></div>
   <div class="mode-banner mode-normal" id="mode-banner">通常モード</div>
@@ -322,8 +250,8 @@ input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,229,255,.1);}
     <div class="hand-hdr">
       <span class="hand-lbl">MY HAND</span>
       <div class="sort-btns">
-        <button class="sort-btn" onclick="sortHand('num')">数字順</button>
-        <button class="sort-btn" onclick="sortHand('col')">色順</button>
+        <button class="sort-btn" id="sort-num" onclick="sortHand('num')">数字順</button>
+        <button class="sort-btn" id="sort-col" onclick="sortHand('col')">色順</button>
       </div>
       <span class="hand-cnt" id="hand-cnt">0</span>
     </div>
@@ -348,28 +276,28 @@ input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,229,255,.1);}
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getDatabase,ref,set,get,onValue,update,remove,off }
+import { getDatabase,ref,set,get,onValue,update,remove }
   from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
-// ── constants ──────────────────────────────────────────────
 const COLORS = ['red','blue','orange','black'];
 const MIN_MELD = 3;
 const INIT_PTS = 30;
 
-// ── state ──────────────────────────────────────────────────
 let db, app;
 let myId = 'p_' + Math.random().toString(36).slice(2,8);
 let myName = '', roomCode = '', isHost = false;
 let gameState = null;
 
-// Editing state (local only, reset each turn)
-// workingMelds = deep copy of table melds that player is modifying this turn
-// movedFromHand = set of tile IDs taken from hand this turn
-let workingMelds = null;   // null = not in edit mode
+let workingMelds = null;
 let movedFromHand = new Set();
-let selectedTile = null;   // { tile, source:'hand'|'table', meldIdx, tileIdx }
+let selectedTile = null;
 
-// ── Firebase init (hardcoded) ───────────────────────────────
+// ★ 手牌ソート状態を保持（ターンを跨いでも維持）
+let handSortOrder = null; // null | 'num' | 'col'
+// ★ ソート済み手牌の順序（IDリスト）を保持
+let handTileOrder = [];
+
+// ── Firebase ────────────────────────────────────────────────
 const FIREBASE_CONFIG = {
   apiKey:            "AIzaSyAg1KexS30mOwwPEh95sRS4AP6yT2BS8Rg",
   authDomain:        "rummikub-1fe89.firebaseapp.com",
@@ -384,15 +312,14 @@ const FIREBASE_CONFIG = {
   try {
     app = initializeApp(FIREBASE_CONFIG);
     db  = getDatabase(app);
-    showScreen('lobby-screen'); // 設定画面をスキップ
-  } catch(e) {
-    showScreen('cfg-screen'); // 万が一のフォールバック
-  }
+    showScreen('lobby-screen');
+  } catch(e) { showScreen('cfg-screen'); }
 })();
 
 // ── Lobby ───────────────────────────────────────────────────
 window.switchTab = function(t) {
-  document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('active',(i===0&&t==='create')||(i===1&&t==='join')));
+  document.querySelectorAll('.tab').forEach((el,i)=>
+    el.classList.toggle('active',(i===0&&t==='create')||(i===1&&t==='join')));
   document.getElementById('tb-create').classList.toggle('active',t==='create');
   document.getElementById('tb-join').classList.toggle('active',t==='join');
 };
@@ -403,8 +330,8 @@ window.createRoom = async function() {
   roomCode = Math.random().toString(36).slice(2,6).toUpperCase();
   isHost = true;
   await set(ref(db,`rooms/${roomCode}`),{
-    host:myId, status:'waiting',
-    players:{ [myId]:{ name:myName, hand:[], connected:true, initialMeldDone:false } }
+    host:myId,status:'waiting',
+    players:{[myId]:{name:myName,hand:[],connected:true,initialMeldDone:false}}
   });
   document.getElementById('disp-code').textContent = roomCode;
   document.getElementById('hdr-room').textContent = 'ROOM: '+roomCode;
@@ -423,7 +350,8 @@ window.joinRoom = async function() {
   if (room.status!=='waiting') { toast('ゲームは既に始まっています','err'); return; }
   if (Object.keys(room.players||{}).length>=4) { toast('満員です','err'); return; }
   roomCode = code; isHost = false;
-  await update(ref(db,`rooms/${code}/players/${myId}`),{name:myName,hand:[],connected:true,initialMeldDone:false});
+  await update(ref(db,`rooms/${code}/players/${myId}`),
+    {name:myName,hand:[],connected:true,initialMeldDone:false});
   document.getElementById('disp-code').textContent = roomCode;
   document.getElementById('hdr-room').textContent = 'ROOM: '+roomCode;
   showScreen('wait-screen');
@@ -438,14 +366,13 @@ function listenWaiting() {
     const list = document.getElementById('wait-plist');
     list.innerHTML='';
     Object.entries(ps).forEach(([pid,p])=>{
-      const li = document.createElement('li');
+      const li=document.createElement('li');
       li.innerHTML=`<span class="dot"></span>${esc(p.name)}${pid===myId?'<span class="you-badge">YOU</span>':''}`;
       list.appendChild(li);
     });
-    const cnt = Object.keys(ps).length;
-    document.getElementById('wait-status').textContent = `${cnt}/4人 参加中`;
-    const sb = document.getElementById('start-btn');
-    sb.style.display = (isHost&&cnt>=2)?'':'none';
+    const cnt=Object.keys(ps).length;
+    document.getElementById('wait-status').textContent=`${cnt}/4人 参加中`;
+    document.getElementById('start-btn').style.display=(isHost&&cnt>=2)?'':'none';
     if (room.status==='playing') { showScreen('game-screen'); listenGame(); }
   });
 }
@@ -457,7 +384,7 @@ window.startGame = async function() {
   const deck = shuffle(makeDeck());
   const ups={};
   let idx=0;
-  pids.forEach(pid=>{ ups[`rooms/${roomCode}/players/${pid}/hand`]=deck.slice(idx,idx+14); idx+=14; });
+  pids.forEach(pid=>{ups[`rooms/${roomCode}/players/${pid}/hand`]=deck.slice(idx,idx+14);idx+=14;});
   ups[`rooms/${roomCode}/pool`]=deck.slice(idx);
   ups[`rooms/${roomCode}/status`]='playing';
   ups[`rooms/${roomCode}/turnOrder`]=pids;
@@ -476,18 +403,48 @@ function listenGame() {
   onValue(ref(db,`rooms/${roomCode}`), snap => {
     if (!snap.exists()) { location.reload(); return; }
     const newState = snap.val();
-    // If it's now my turn, reset working state
     const wasMyTurn = isMyTurn(gameState);
     const nowMyTurn = isMyTurn(newState);
+
+    // ★ ターンが自分に切り替わったタイミングでのみ編集状態をリセット
     if (!wasMyTurn && nowMyTurn) resetWorkingState();
+
+    // ★ 手牌が変化したとき（ドロー・確定後）ソート順を維持しつつ更新
+    const oldHand = gameState?.players?.[myId]?.hand || [];
+    const newHand = newState?.players?.[myId]?.hand || [];
     gameState = newState;
+
+    // 手牌IDセットが変わっていたらソート順を更新
+    if (handOrderChanged(oldHand, newHand)) {
+      updateHandOrder(newHand);
+    }
+
     renderGame();
+  });
+}
+
+// 手牌の構成が変化したか判定（ドロー・出した後）
+function handOrderChanged(oldHand, newHand) {
+  if (oldHand.length !== newHand.length) return true;
+  const oldIds = new Set(oldHand.map(t=>t.id));
+  return newHand.some(t=>!oldIds.has(t.id));
+}
+
+// ★ 既存のソート順を維持しつつ新しいタイルを末尾に追加
+function updateHandOrder(newHand) {
+  const newIds = new Set(newHand.map(t=>t.id));
+  // 既存順から消えたIDを除去
+  handTileOrder = handTileOrder.filter(id=>newIds.has(id));
+  // 新しく追加されたID（ドローしたタイル）を末尾に追加
+  const existingIds = new Set(handTileOrder);
+  newHand.forEach(t=>{
+    if (!existingIds.has(t.id)) handTileOrder.push(t.id);
   });
 }
 
 function isMyTurn(state) {
   if (!state) return false;
-  return (state.turnOrder||[])[state.currentTurnIdx||0] === myId;
+  return (state.turnOrder||[])[state.currentTurnIdx||0]===myId;
 }
 
 function resetWorkingState() {
@@ -499,22 +456,22 @@ function resetWorkingState() {
 // ── Render ──────────────────────────────────────────────────
 function renderGame() {
   if (!gameState) return;
-  const players = gameState.players||{};
-  const order   = gameState.turnOrder||[];
-  const curIdx  = gameState.currentTurnIdx||0;
-  const curId   = order[curIdx];
-  const myTurn  = curId===myId;
+  const players=gameState.players||{};
+  const order=gameState.turnOrder||[];
+  const curIdx=gameState.currentTurnIdx||0;
+  const curId=order[curIdx];
+  const myTurn=curId===myId;
 
   // Turn indicator
-  const ti = document.getElementById('turn-ind');
-  ti.textContent = myTurn ? 'YOUR TURN' : ((players[curId]?.name||'?')+"'s TURN");
-  ti.className = 'turn-ind'+(myTurn?' mine':'');
+  const ti=document.getElementById('turn-ind');
+  ti.textContent=myTurn?'YOUR TURN':((players[curId]?.name||'?')+"'s TURN");
+  ti.className='turn-ind'+(myTurn?' mine':'');
 
   // Players bar
-  const pb = document.getElementById('players-bar');
+  const pb=document.getElementById('players-bar');
   pb.innerHTML='';
   order.forEach(pid=>{
-    const p=players[pid]; if(!p)return;
+    const p=players[pid];if(!p)return;
     const c=document.createElement('div');
     c.className='p-chip'+(pid===curId?' cur':'');
     c.innerHTML=`${esc(p.name)}<span class="cnt">${(p.hand||[]).length}</span>`;
@@ -522,97 +479,107 @@ function renderGame() {
   });
 
   // Mode banner
-  const banner = document.getElementById('mode-banner');
+  const banner=document.getElementById('mode-banner');
   if (!myTurn) {
-    banner.textContent='相手のターン'; banner.className='mode-banner mode-normal';
+    banner.textContent='相手のターン';banner.className='mode-banner mode-normal';
   } else if (workingMelds===null) {
-    banner.textContent='タイルを選んで操作'; banner.className='mode-banner mode-normal';
+    banner.textContent='タイルを選んで操作';banner.className='mode-banner mode-normal';
   } else {
-    const allValid = workingMelds.every(m=>isValidMeld(m));
+    const allValid=workingMelds.every(m=>isValidMeld(m));
     banner.textContent=`組み替え中 — ${allValid?'✓ すべて有効':'✗ 無効なグループあり'}`;
     banner.className='mode-banner '+(allValid?'mode-new':'mode-edit');
   }
 
-  // Display melds: use workingMelds if in editing mode, else committed
-  const displayMelds = workingMelds!==null ? workingMelds : (gameState.melds||[]);
-  const ts = document.getElementById('table-scroll');
-  ts.innerHTML='';
-  document.getElementById('empty-hint').style.display = displayMelds.length===0?'flex':'none';
+  // Table melds
+  // ★ 表示用melds: ランは自動ソート済みで表示
+  const rawMelds=workingMelds!==null?workingMelds:(gameState.melds||[]);
+  const displayMelds=rawMelds.map(meld=>autoSortMeld(meld));
+  // workingMeldsも自動ソートを反映
+  if (workingMelds!==null) {
+    for(let i=0;i<workingMelds.length;i++) workingMelds[i]=displayMelds[i];
+  }
 
-  const inEdit = workingMelds!==null;
-  if (inEdit) ts.classList.add('editing-mode');
+  const ts=document.getElementById('table-scroll');
+  ts.innerHTML='';
+  document.getElementById('empty-hint').style.display=displayMelds.length===0?'flex':'none';
+  const inEdit=workingMelds!==null;
+  if(inEdit)ts.classList.add('editing-mode');
   else ts.classList.remove('editing-mode');
 
   displayMelds.forEach((meld,mi)=>{
-    const grp = document.createElement('div');
-    const valid = isValidMeld(meld);
-    grp.className = 'meld-grp'+(inEdit?(valid?' valid':' invalid'):'');
-
-    if (inEdit) {
-      // Validity badge
+    const grp=document.createElement('div');
+    const valid=isValidMeld(meld);
+    grp.className='meld-grp'+(inEdit?(valid?' valid':' invalid'):'');
+    if(inEdit){
       const badge=document.createElement('div');
       badge.className='v-badge '+(valid?'ok':'ng');
       badge.textContent=valid?'✓':'✗';
       grp.appendChild(badge);
     }
-
     meld.forEach((tile,ti2)=>{
-      const el = makeTileEl(tile);
-      // Highlight if this tile is selected
-      if (selectedTile && selectedTile.tile.id===tile.id &&
-          selectedTile.source==='table' && selectedTile.meldIdx===mi && selectedTile.tileIdx===ti2) {
+      const el=makeTileEl(tile);
+      if(selectedTile&&selectedTile.tile.id===tile.id&&
+         selectedTile.source==='table'&&selectedTile.meldIdx===mi&&selectedTile.tileIdx===ti2)
         el.classList.add('sel');
-      }
-      // Click: select to move
-      el.addEventListener('click', e=>{ e.stopPropagation(); onTableTileClick(tile,mi,ti2); });
-
-      // Remove button (edit mode)
-      if (inEdit) {
+      el.addEventListener('click',e=>{e.stopPropagation();onTableTileClick(tile,mi,ti2);});
+      if(inEdit){
         const rb=document.createElement('div');
-        rb.className='tile-remove'; rb.textContent='×';
-        rb.addEventListener('click', e=>{e.stopPropagation(); removeTileFromMeld(mi,ti2);});
+        rb.className='tile-remove';rb.textContent='×';
+        rb.addEventListener('click',e=>{e.stopPropagation();removeTileFromMeld(mi,ti2);});
         el.appendChild(rb);
       }
       grp.appendChild(el);
     });
-
-    // Clicking the group background = drop selected tile here
-    grp.addEventListener('click', ()=>{ if(selectedTile) dropIntoMeld(mi); });
+    grp.addEventListener('click',()=>{if(selectedTile)dropIntoMeld(mi);});
     ts.appendChild(grp);
   });
 
-  // + button (start editing or add new group)
-  if (myTurn) {
+  if(myTurn){
     const addBtn=document.createElement('button');
-    addBtn.className='add-grp-btn'; addBtn.textContent='+';
+    addBtn.className='add-grp-btn';addBtn.textContent='+';
     addBtn.title='新しいグループを追加';
-    addBtn.addEventListener('click', ()=>addNewGroup());
+    addBtn.addEventListener('click',()=>addNewGroup());
     ts.appendChild(addBtn);
   }
 
-  // Hand
-  const myHand = (players[myId]?.hand)||[];
-  const handDiv = document.getElementById('hand-tiles');
-  handDiv.innerHTML='';
-  myHand.forEach(tile=>{
-    const el = makeTileEl(tile);
-    if (movedFromHand.has(tile.id)) el.classList.add('dimmed');
-    if (selectedTile?.tile.id===tile.id && selectedTile?.source==='hand') el.classList.add('sel');
-    el.addEventListener('click', ()=>onHandTileClick(tile));
-    handDiv.appendChild(el);
-  });
-  document.getElementById('hand-cnt').textContent=(myHand.length)+' tiles';
+  // ★ 手牌: handTileOrderに基づいて表示
+  const myHand=(players[myId]?.hand)||[];
+  renderHand(myHand);
+  document.getElementById('hand-cnt').textContent=myHand.length+' tiles';
 
   // Buttons
-  document.getElementById('btn-draw').disabled = !myTurn;
-  document.getElementById('btn-confirm').disabled = !myTurn;
+  document.getElementById('btn-draw').disabled=!myTurn;
+  document.getElementById('btn-confirm').disabled=!myTurn;
+
+  // Sort button highlight
+  document.getElementById('sort-num').classList.toggle('active-sort',handSortOrder==='num');
+  document.getElementById('sort-col').classList.toggle('active-sort',handSortOrder==='col');
 
   // Winner
-  if (gameState.winner) {
-    const wn = players[gameState.winner]?.name||'??';
-    document.getElementById('winner-name').textContent = wn+' の勝利！';
+  if(gameState.winner){
+    const wn=players[gameState.winner]?.name||'??';
+    document.getElementById('winner-name').textContent=wn+' の勝利！';
     document.getElementById('winner-ov').classList.add('show');
   }
+}
+
+// ★ handTileOrderの順番で手牌を描画
+function renderHand(myHand) {
+  const handDiv=document.getElementById('hand-tiles');
+  handDiv.innerHTML='';
+  const tileMap=new Map(myHand.map(t=>[t.id,t]));
+  // handTileOrderのうち今の手牌にあるものだけ表示
+  const ordered=handTileOrder.filter(id=>tileMap.has(id)).map(id=>tileMap.get(id));
+  // 念のため漏れがあれば末尾に追加
+  const orderedIds=new Set(ordered.map(t=>t.id));
+  myHand.forEach(t=>{if(!orderedIds.has(t.id))ordered.push(t);});
+  ordered.forEach(tile=>{
+    const el=makeTileEl(tile);
+    if(movedFromHand.has(tile.id))el.classList.add('dimmed');
+    if(selectedTile?.tile.id===tile.id&&selectedTile?.source==='hand')el.classList.add('sel');
+    el.addEventListener('click',()=>onHandTileClick(tile));
+    handDiv.appendChild(el);
+  });
 }
 
 function makeTileEl(tile) {
@@ -620,18 +587,35 @@ function makeTileEl(tile) {
   el.className='tile color-'+tile.color;
   el.dataset.id=tile.id;
   el.textContent=tile.isJoker?'JOKER':tile.number;
-  if (!tile.isJoker) { const d=document.createElement('div'); d.className='cdot'; el.appendChild(d); }
+  if(!tile.isJoker){const d=document.createElement('div');d.className='cdot';el.appendChild(d);}
   return el;
+}
+
+// ★ ランの場合は数字昇順に自動ソート、セットはそのまま
+function autoSortMeld(meld) {
+  if (!meld || meld.length === 0) return meld;
+  const jokers = meld.filter(t=>t.isJoker);
+  const rest = meld.filter(t=>!t.isJoker);
+  // ランかどうか判定（同色連番）
+  if (rest.length > 0) {
+    const color = rest[0].color;
+    const isRun = rest.every(t=>t.color===color);
+    if (isRun) {
+      // 数字昇順にソートしてジョーカーを末尾に（ジョーカー位置は維持が難しいため末尾）
+      const sorted = [...rest].sort((a,b)=>a.number-b.number);
+      // ジョーカーは末尾に追加（実際の位置は確定フロー外なので末尾でOK）
+      return [...sorted, ...jokers];
+    }
+  }
+  return meld; // セットはそのまま
 }
 
 // ── Interaction ─────────────────────────────────────────────
 function onHandTileClick(tile) {
   if (!isMyTurn(gameState)) { toast('あなたのターンではありません'); return; }
   if (movedFromHand.has(tile.id)) { toast('そのタイルはすでにテーブルに配置中です'); return; }
-
-  if (selectedTile?.tile.id===tile.id && selectedTile?.source==='hand') {
-    // Deselect
-    selectedTile=null; renderGame(); return;
+  if (selectedTile?.tile.id===tile.id&&selectedTile?.source==='hand') {
+    selectedTile=null;renderGame();return;
   }
   selectedTile={tile,source:'hand'};
   renderGame();
@@ -639,93 +623,70 @@ function onHandTileClick(tile) {
 
 function onTableTileClick(tile,mi,ti2) {
   if (!isMyTurn(gameState)) return;
-
-  // If something is selected, try to swap/move
   if (selectedTile) {
-    if (selectedTile.source==='table' && selectedTile.meldIdx===mi && selectedTile.tileIdx===ti2) {
-      // Deselect same tile
-      selectedTile=null; renderGame(); return;
+    if (selectedTile.source==='table'&&selectedTile.meldIdx===mi&&selectedTile.tileIdx===ti2) {
+      selectedTile=null;renderGame();return;
     }
-    // Move selected tile next to this tile
     insertTileNearTarget(mi,ti2);
     return;
   }
-
-  // Select this table tile (only in edit mode)
   ensureWorkingMelds();
   selectedTile={tile,source:'table',meldIdx:mi,tileIdx:ti2};
   renderGame();
 }
 
-// Drop selected tile into a meld group (append)
 function dropIntoMeld(mi) {
   if (!selectedTile) return;
   ensureWorkingMelds();
-
   if (selectedTile.source==='hand') {
     if (movedFromHand.has(selectedTile.tile.id)) return;
     workingMelds[mi].push(selectedTile.tile);
     movedFromHand.add(selectedTile.tile.id);
   } else {
-    // Move from another meld
-    const from = selectedTile.meldIdx;
-    const fi   = selectedTile.tileIdx;
-    if (from===mi) { selectedTile=null; renderGame(); return; }
-    const [moved] = workingMelds[from].splice(fi,1);
+    const from=selectedTile.meldIdx,fi=selectedTile.tileIdx;
+    if (from===mi) { selectedTile=null;renderGame();return; }
+    const [moved]=workingMelds[from].splice(fi,1);
     workingMelds[mi].push(moved);
-    // Remove empty melds
     cleanEmptyMelds();
   }
-  selectedTile=null;
-  renderGame();
+  selectedTile=null;renderGame();
 }
 
-// Insert selected tile before/after the target position
 function insertTileNearTarget(mi,ti2) {
   ensureWorkingMelds();
-  const tgt = workingMelds[mi];
-
   if (selectedTile.source==='hand') {
-    if (movedFromHand.has(selectedTile.tile.id)) { selectedTile=null; renderGame(); return; }
-    tgt.splice(ti2,0,selectedTile.tile);
+    if (movedFromHand.has(selectedTile.tile.id)) { selectedTile=null;renderGame();return; }
+    workingMelds[mi].splice(ti2,0,selectedTile.tile);
     movedFromHand.add(selectedTile.tile.id);
   } else {
-    const from = selectedTile.meldIdx;
-    const fi   = selectedTile.tileIdx;
-    if (from===mi && fi===ti2) { selectedTile=null; renderGame(); return; }
-    // Adjust index if removing from same meld
-    const [moved] = workingMelds[from].splice(fi,1);
-    // Recalculate target index after removal
-    const insertIdx = (from===mi && fi<ti2) ? ti2-1 : ti2;
+    const from=selectedTile.meldIdx,fi=selectedTile.tileIdx;
+    if (from===mi&&fi===ti2) { selectedTile=null;renderGame();return; }
+    const [moved]=workingMelds[from].splice(fi,1);
+    const insertIdx=(from===mi&&fi<ti2)?ti2-1:ti2;
     workingMelds[mi].splice(insertIdx,0,moved);
     cleanEmptyMelds();
   }
-  selectedTile=null;
-  renderGame();
+  selectedTile=null;renderGame();
 }
 
 function addNewGroup() {
   if (!selectedTile) { toast('まず手牌またはテーブルのタイルを選んでください'); return; }
   ensureWorkingMelds();
-
   if (selectedTile.source==='hand') {
-    if (movedFromHand.has(selectedTile.tile.id)) { selectedTile=null; renderGame(); return; }
+    if (movedFromHand.has(selectedTile.tile.id)) { selectedTile=null;renderGame();return; }
     workingMelds.push([selectedTile.tile]);
     movedFromHand.add(selectedTile.tile.id);
   } else {
-    const from=selectedTile.meldIdx;
-    const fi=selectedTile.tileIdx;
+    const from=selectedTile.meldIdx,fi=selectedTile.tileIdx;
     const [moved]=workingMelds[from].splice(fi,1);
     workingMelds.push([moved]);
     cleanEmptyMelds();
   }
-  selectedTile=null;
-  renderGame();
+  selectedTile=null;renderGame();
 }
 
 function removeTileFromMeld(mi,ti2) {
-  // Return tile to hand (only if it came from hand this turn)
-  const tile = workingMelds[mi][ti2];
+  const tile=workingMelds[mi][ti2];
   if (movedFromHand.has(tile.id)) {
     workingMelds[mi].splice(ti2,1);
     movedFromHand.delete(tile.id);
@@ -737,57 +698,51 @@ function removeTileFromMeld(mi,ti2) {
 }
 
 function ensureWorkingMelds() {
-  if (workingMelds===null) {
-    workingMelds = JSON.parse(JSON.stringify(gameState.melds||[]));
-  }
+  if (workingMelds===null)
+    workingMelds=JSON.parse(JSON.stringify(gameState.melds||[]));
 }
 
 function cleanEmptyMelds() {
-  workingMelds = workingMelds.filter(m=>m.length>0);
+  workingMelds=workingMelds.filter(m=>m.length>0);
 }
 
 // ── Actions ─────────────────────────────────────────────────
 window.drawTile = async function() {
   if (!isMyTurn(gameState)) { toast('あなたのターンではありません','err'); return; }
-  if (workingMelds!==null && movedFromHand.size>0) {
+  if (workingMelds!==null&&movedFromHand.size>0) {
     toast('配置中のタイルがあります。キャンセルするか確定してください','err'); return;
   }
-  const pool = gameState.pool||[];
+  const pool=gameState.pool||[];
   if (!pool.length) { toast('山札がありません','err'); return; }
-  const drawn = pool[pool.length-1];
-  const newHand = [...(gameState.players[myId]?.hand||[]),drawn];
+  const drawn=pool[pool.length-1];
+  const newHand=[...(gameState.players[myId]?.hand||[]),drawn];
   const ups={};
   ups[`rooms/${roomCode}/pool`]=pool.slice(0,-1);
   ups[`rooms/${roomCode}/players/${myId}/hand`]=newHand;
   ups[`rooms/${roomCode}/currentTurnIdx`]=nextIdx();
   await update(ref(db,'/'),ups);
+  // ★ ドロー後: workingMeldsをリセット、手牌順序はupdateHandOrderで更新済み
   resetWorkingState();
   toast('ドローしました','ok');
 };
 
 window.confirmPlay = async function() {
   if (!isMyTurn(gameState)) { toast('あなたのターンではありません','err'); return; }
-  if (workingMelds===null || movedFromHand.size===0) {
+  if (workingMelds===null||movedFromHand.size===0) {
     toast('テーブルに配置するタイルがありません','err'); return;
   }
-
-  // All melds must be valid
   if (!workingMelds.every(m=>isValidMeld(m))) {
     toast('無効なグループがあります。確認してください','err'); return;
   }
-
-  const myPlayer = gameState.players[myId];
-  // Initial meld: sum of newly placed tiles >= 30
+  const myPlayer=gameState.players[myId];
   if (!myPlayer.initialMeldDone) {
-    const pts = [...movedFromHand].reduce((s,tid)=>{
-      const t = myPlayer.hand.find(h=>h.id===tid);
+    const pts=[...movedFromHand].reduce((s,tid)=>{
+      const t=myPlayer.hand.find(h=>h.id===tid);
       return s+(t&&!t.isJoker?t.number:0);
     },0);
     if (pts<INIT_PTS) { toast(`初回出しは合計${INIT_PTS}点以上必要です（現在${pts}点）`,'err'); return; }
   }
-
-  // Remove moved tiles from hand
-  const newHand = (myPlayer.hand||[]).filter(t=>!movedFromHand.has(t.id));
+  const newHand=(myPlayer.hand||[]).filter(t=>!movedFromHand.has(t.id));
   const ups={};
   ups[`rooms/${roomCode}/players/${myId}/hand`]=newHand;
   ups[`rooms/${roomCode}/players/${myId}/initialMeldDone`]=true;
@@ -799,9 +754,11 @@ window.confirmPlay = async function() {
   toast('確定しました！','ok');
 };
 
+// ★ キャンセル: 編集状態を全リセット → Firebase上のmelds（元の状態）に戻る
 window.cancelAction = function() {
   resetWorkingState();
   renderGame();
+  toast('キャンセルしました');
 };
 
 function nextIdx() {
@@ -809,21 +766,19 @@ function nextIdx() {
   return ((gameState.currentTurnIdx||0)+1)%o.length;
 }
 
-// ── Sort ─────────────────────────────────────────────────────
+// ── Sort ────────────────────────────────────────────────────
 window.sortHand = function(by) {
   if (!gameState?.players[myId]) return;
+  handSortOrder = by;
   const hand=[...(gameState.players[myId].hand||[])];
   if (by==='num') hand.sort((a,b)=>a.number-b.number||a.color.localeCompare(b.color));
   if (by==='col') hand.sort((a,b)=>a.color.localeCompare(b.color)||a.number-b.number);
-  const handDiv=document.getElementById('hand-tiles');
-  handDiv.innerHTML='';
-  hand.forEach(tile=>{
-    const el=makeTileEl(tile);
-    if (movedFromHand.has(tile.id)) el.classList.add('dimmed');
-    if (selectedTile?.tile.id===tile.id) el.classList.add('sel');
-    el.addEventListener('click',()=>onHandTileClick(tile));
-    handDiv.appendChild(el);
-  });
+  // ★ ソート結果をhandTileOrderに保存
+  handTileOrder = hand.map(t=>t.id);
+  renderHand(hand);
+  // Sort button highlight
+  document.getElementById('sort-num').classList.toggle('active-sort',by==='num');
+  document.getElementById('sort-col').classList.toggle('active-sort',by==='col');
 };
 
 // ── Validation ───────────────────────────────────────────────
@@ -850,22 +805,22 @@ function validRun(t,j) {
   for (let i=1;i<nums.length;i++) {
     const g=nums[i]-nums[i-1]-1;
     if (g<0) return false;
-    jl-=g; if(jl<0) return false;
+    jl-=g;if(jl<0) return false;
   }
   return true;
 }
 
 // ── Deck ──────────────────────────────────────────────────────
 function makeDeck() {
-  const t=[]; let id=0;
-  for (let s=0;s<2;s++) for (const c of COLORS) for (let n=1;n<=13;n++) t.push({id:id++,color:c,number:n});
+  const t=[];let id=0;
+  for(let s=0;s<2;s++) for(const c of COLORS) for(let n=1;n<=13;n++) t.push({id:id++,color:c,number:n});
   t.push({id:id++,color:'joker',number:0,isJoker:true});
   t.push({id:id++,color:'joker',number:0,isJoker:true});
   return t;
 }
 function shuffle(a) {
   const r=[...a];
-  for (let i=r.length-1;i>0;i--) { const j=Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]]; }
+  for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];}
   return r;
 }
 
